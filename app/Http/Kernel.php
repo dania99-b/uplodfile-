@@ -2,6 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckIn;
+use App\Http\Middleware\FileOwner;
+use App\Http\Middleware\FileReserv;
+use App\Http\Middleware\GroupOwner;
 use App\Http\Middleware\logRoute;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -67,7 +71,11 @@ class Kernel extends HttpKernel
             'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
             'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
         'CheckApiToken' => \App\Http\Middleware\CheckApiToken::class,
-        'log.route'=>\App\Http\Middleware\logRoute::class
+        'log.route'=>\App\Http\Middleware\logRoute::class,
+        'FileOwner'=>\App\Http\Middleware\FileOwner::class,
+        'GroupOwner'=>GroupOwner::class,
+        'CheckIn'=>CheckIn::class,
+        'FileReserv'=>FileReserv::class
 
     ];
 

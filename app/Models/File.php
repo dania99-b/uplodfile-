@@ -14,7 +14,8 @@ class File extends Model
         'name',
         'path',
         'status',
-        'user_id'
+        'user_id',
+        'reserved_by'
     ];
     public function checklists(){
         return $this->belongsTo(User::class);
